@@ -312,7 +312,7 @@ details.faq-item[open] { animation: faq-open var(--dur) var(--ease); }
 }
 @media (max-width: 760px) {
   .sticky-cta.is-active { display: flex; }
-  body.has-sticky-cta:not(.cookie-shown) main { padding-bottom: 84px; }
+  body.has-sticky-cta main { padding-bottom: 84px; }
 }
 
 /* ---------- Reveal-анимации ---------- */
