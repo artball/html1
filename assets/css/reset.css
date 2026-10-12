@@ -1,0 +1,30 @@
+/* reset.css — современный минимальный сброс */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
+
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+
+ul[class], ol[class] { list-style: none; margin: 0; padding: 0; }
+ul:not([class]), ol:not([class]) { padding-left: 1.3em; }
+
+img, picture, svg, video, canvas { display: block; max-width: 100%; height: auto; }
+
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; padding: 0; }
+a { color: var(--c-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+table { border-collapse: collapse; width: 100%; }
+
+fieldset { border: 0; margin: 0; padding: 0; }
+legend { padding: 0; }
+
+address { font-style: normal; }
+
+[hidden] { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

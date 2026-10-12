@@ -1,0 +1,75 @@
+/* base.css — базовая типографика и глобальные элементы */
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-text);
+  background: var(--c-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+main { flex: 1; }
+
+h1, .h1 { font-family: var(--ff-head); font-size: var(--fs-h1); line-height: var(--lh-head); letter-spacing: -.02em; }
+h2, .h2 { font-family: var(--ff-head); font-size: var(--fs-h2); line-height: var(--lh-head); letter-spacing: -.015em; }
+h3, .h3 { font-family: var(--ff-head); font-size: var(--fs-h3); line-height: 1.3; }
+h4, .h4 { font-size: var(--fs-h4); line-height: 1.35; }
+
+p + p { margin-top: var(--sp-3); }
+
+strong { font-weight: 700; }
+
+.text-soft { color: var(--c-text-soft); }
+.text-mute { color: var(--c-text-mute); }
+.text-accent { color: var(--c-accent); }
+.grad-text {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.mono { font-family: var(--ff-mono); font-size: var(--fs-sm); }
+.lead { font-size: clamp(1.05rem, 1rem + .5vw, 1.25rem); color: var(--c-text-soft); }
+.small { font-size: var(--fs-sm); }
+
+ul:not([class]) li, ol:not([class]) li { margin-block: .4em; }
+
+hr { border: 0; border-top: 1px solid var(--c-border); margin-block: var(--sp-6); }
+
+::selection { background: var(--c-accent); color: #fff; }
+
+/* Фокус для клавиатуры */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Ссылки в контенте */
+.prose a { text-decoration: underline; text-underline-offset: 3px; }
+
+.skip-link {
+  position: absolute;
+  left: var(--sp-4);
+  top: -60px;
+  z-index: calc(var(--z-modal) + 1);
+  background: var(--c-accent);
+  color: #fff;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-sm);
+  transition: top var(--dur) var(--ease);
+}
+.skip-link:focus-visible { top: var(--sp-3); }
+
+/* Таблицы */
+.table-wrap { overflow-x: auto; border: 1px solid var(--c-border); border-radius: var(--r-md); background: var(--c-surface); }
+table th, table td { padding: var(--sp-3) var(--sp-4); text-align: left; border-bottom: 1px solid var(--c-border); font-size: var(--fs-sm); }
+table thead th { background: var(--c-bg-elev); font-family: var(--ff-head); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--c-text-soft); }
+table tbody tr:last-child td { border-bottom: 0; }
+
+/* Code */
+code { font-family: var(--ff-mono); font-size: .9em; background: var(--c-bg-elev); padding: .15em .45em; border-radius: 6px; }

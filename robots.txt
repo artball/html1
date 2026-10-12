@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /tmp/
+Disallow: /*?utm_
+Allow: /*.css
+Allow: /*.js
+
+Sitemap: https://maxim-orlov.seo/sitemap.xml
+Host: maxim-orlov.seo
