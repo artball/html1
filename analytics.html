@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web-аналитика сайта — настройка GA4, Яндекс.Метрики, сквозная аналитика | Максим Орлов</title>
+  <meta name="description" content="Настройка веб-аналитики: GA4, Яндекс.Метрика, цели и события, e-commerce, дашборды Looker Studio, сквозная аналитика с CRM. Узнайте, откуда приходят заявки и сколько они стоят.">
+  <link rel="canonical" href="https://maxim-orlov.seo/analytics.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Web-аналитика сайта">
+  <meta property="og:description" content="Настройка веб-аналитики: GA4, Яндекс.Метрика, цели и события, e-commerce, дашборды Looker Studio, сквозная аналитика с CRM. Узнайте, откуда приходят заявки и сколько они стоят.">
+  <meta property="og:url" content="https://maxim-orlov.seo/analytics.html">
+  <meta property="og:image" content="https://maxim-orlov.seo/assets/img/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+
+  <!-- Шрифты: preconnect + swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"></noscript>
+
+  <!-- Критический CSS (инлайн) + основные стили -->
+  <style>:root{--c-bg:#fff;--c-text:#14161a;--c-accent:#4f46e5;--header-h:68px}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--c-bg);color:var(--c-text)}.container{max-width:1200px;margin:0 auto;padding:0 1.25rem}.site-header{position:sticky;top:0;height:var(--header-h)}h1{font-size:clamp(2rem,4vw,3.25rem)}</style>
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+
+  <!-- Тема без FOUC -->
+  <script src="assets/js/theme.js"></script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://maxim-orlov.seo/"}, {"@type": "ListItem", "position": 2, "name": "Web-аналитика: превращаю данные в решения", "item": "https://maxim-orlov.seo/analytics.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Service", "name": "Web-аналитика сайта", "description": "Настройка GA4, Яндекс.Метрики, целей, e-commerce и сквозной аналитики.", "serviceType": "SEO и интернет-маркетинг", "provider": {"@type": "Person", "name": "Максим Орлов"}, "areaServed": "RU", "url": "https://maxim-orlov.seo/analytics.html"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Какие инструменты аналитики вы используете?", "acceptedAnswer": {"@type": "Answer", "text": "Google Analytics 4, Яндекс.Метрика с Вебвизором, Search Console, Looker Studio, Roistat — при необходимости. Выбор зависит от ниши и источников трафика: универсальных решений не бывает."}}, {"@type": "Question", "name": "Нужна ли аналитика, если сайт маленький?", "acceptedAnswer": {"@type": "Answer", "text": "Да — даже 10 заявок в месяц стоит измерять. Без данных вы не знаете, какие каналы работают, а какие сливают бюджет. На маленьком проекте настройка дешевле и быстрее."}}, {"@type": "Question", "name": "Вы подключаете сквозную аналитику?", "acceptedAnswer": {"@type": "Answer", "text": "Да, при наличии CRM или коллтрекинга строю связку «показ → клик → заявка → сделка → выручка». Это позволяет считать ROI каждого канала, а не просто количество визитов."}}]}
+  </script>
+</head>
+
+<body data-active="analytics">
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="promotion.html">Услуги</a></li>
+          <li><a href="analytics.html">Web-аналитика</a></li>
+          <li><span aria-current="page">Web-аналитика</span></li>
+          </ol>
+        </nav>
+        <span class="badge">Услуга · Web-аналитика</span>
+        <h1>Web-аналитика: превращаю данные в решения</h1>
+        <p class="lead">Пока заявки не считаются по каналам, бюджет делится на глаз. Настраиваю измерение каждого шага клиента — от показа рекламы до сделки в CRM — и даю отчёты, которые понимает собственник, а не только маркетолог.</p>
+        <div class="hero-ctas" style="margin-top:2rem">
+          <a class="btn btn-primary btn-lg" href="#order" data-track="cta_click" data-track-label="hero">Обсудить задачу</a>
+          <a class="btn btn-outline btn-lg" href="pricing.html">Смотреть цены</a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2>Почему бизнес теряет деньги без аналитики</h2>
+        <p>«Сайт приносит примерно столько же, сколько в прошлом месяце» — так говорят те, кто не измеряет. Типичные симптомы слепой работы:</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>неизвестно, какой канал приводит клиентов — SEO, реклама, соцсети или рекомендации;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>бюджет на рекламу распределяется интуитивно, 20–40% уходит впустую;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>высокий отказ и низкая конверсия не объяснены — непонятно, что чинить;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>споры с подрядчиками «кто привёл заявку» заканчиваются без результата;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>исторические данные не собирались — восстановить их уже невозможно.</li>
+        </ul>
+        <h3>Решение: единая система измерения</h3>
+        <p>Начинаю с аудита текущего учёта: часто счётчик «стоит», но считает неверно — теряются события, дублируются визиты, боты завышают трафик. После настройки каждая заявка имеет источник, стоимость и путь; решения принимаются по цифрам, а не по ощущениям.</p>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal"><h2>Что входит в услугу</h2><p class="lead">Полный цикл: от установки кода до регламента отчётности.</p></div>
+        <div class="grid-3">
+          <article class="card card-hover reveal"><h3>Подключение GA4 и Метрики</h3><p class="text-soft small">Корректная установка счётчиков, синхронизация данных, фильтры ботов, проверка на потери и дубли.</p></article>
+          <article class="card card-hover reveal"><h3>Цели и события</h3><p class="text-soft small">Формы, звонки, клики Telegram/WhatsApp, скачивания, глубина скролла — через dataLayer, без «целей по URL».</p></article>
+          <article class="card card-hover reveal"><h3>Электронная коммерция</h3><p class="text-soft small">Воронка: просмотр товара → корзина → оформление → покупка, с суммами, SKU и сегментами по устройствам.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Дашборды Looker Studio</h3><p class="text-soft small">Онлайн-отчёт с главными метриками: трафик, лиды, цена заявки по каналам. Обновляется автоматически.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Сквозная аналитика</h3><p class="text-soft small">Связка «показ → клик → заявка → сделка → выручка» при наличии CRM или коллтрекинга. Считаю ROMI каналов.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Обучение команды</h3><p class="text-soft small">30-минутный созвон и памятка: как читать отчёты, какие цифры смотреть еженедельно, где искать аномалии.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal"><h2>Как проходит работа</h2></div>
+        <div class="steps reveal reveal-delay-1">
+          <div class="step"><h3>Бриф и доступы</h3><p>15 минут созвона: какие метрики важны для бизнеса, где фиксируются лиды, какая есть CRM.</p></div>
+          <div class="step"><h3>Аудит текущего учёта</h3><p>Проверяю корректность счётчиков, целей, интеграций; нахожу потери и искажения данных.</p></div>
+          <div class="step"><h3>Настройка сбора</h3><p>Теги, события, dataLayer, электронная коммерция, кросс-доменный учёт, UTM-политика.</p></div>
+          <div class="step"><h3>Отчётный слой</h3><p>Собираю дашборд и передаю регламент: кто, что и как часто смотрит.</p></div>
+          <div class="step"><h3>Контроль качества</h3><p>Через 2 недели сверяю цифры с реальными заявками, корректирую расхождения.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal"><h2>Стоимость аналитики</h2><p class="lead">Фиксируется в договоре до начала работ.</p></div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead><tr><th scope="col">Услуга</th><th scope="col">Срок</th><th scope="col">Цена</th></tr></thead>
+            <tbody>
+              <tr><td>Базовая настройка: GA4 + Метрика + цели</td><td>3–5 дней</td><td>от 20 000 ₽</td></tr>
+              <tr><td>E-commerce + дашборд Looker Studio</td><td>5–10 дней</td><td>от 35 000 ₽</td></tr>
+              <tr><td>Сквозная аналитика с CRM</td><td>от 2 недель</td><td>от 60 000 ₽</td></tr>
+              <tr><td>Ежемесячное сопровождение и отчёты</td><td>—</td><td>от 15 000 ₽/мес</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2>Частые вопросы</h2>
+          <p class="lead">Коротко о главном — до звонка и брифа.</p>
+        </div>
+        <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Какие инструменты аналитики вы используете?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Google Analytics 4, Яндекс.Метрика с Вебвизором, Search Console, Looker Studio, Roistat — при необходимости. Выбор зависит от ниши и источников трафика: универсальных решений не бывает.</p></div>
+            </details>
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Нужна ли аналитика, если сайт маленький?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Да — даже 10 заявок в месяц стоит измерять. Без данных вы не знаете, какие каналы работают, а какие сливают бюджет. На маленьком проекте настройка дешевле и быстрее.</p></div>
+            </details>
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Вы подключаете сквозную аналитику?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Да, при наличии CRM или коллтрекинга строю связку «показ → клик → заявка → сделка → выручка». Это позволяет считать ROI каждого канала, а не просто количество визитов.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Смежные услуги</h2>
+          <p class="lead">Результат приходит, когда работы связаны в единую стратегию.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card card-hover reveal"><h3><a href="keywords.html">Семантическое ядро</a></h3><p class="text-soft small">Сбор и кластеризация запросов — фундамент продвижения и рекламы.</p></article>
+          <article class="card card-hover reveal"><h3><a href="content.html">Контент и копирайтинг</a></h3><p class="text-soft small">Тексты под интент: читают люди, любят поисковики.</p></article>
+          <article class="card card-hover reveal"><h3><a href="analytics-site-audit.html">Анализ сайта</a></h3><p class="text-soft small">Поведение, юзабилити и конверсии — где теряются заявки.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" id="order" aria-labelledby="order-h">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <h2 id="order-h">Готовы обсудить ваш проект?</h2>
+            <p class="lead">Опишите задачу — в течение рабочего дня пришлю предварительную оценку, план работ и релевантные кейсы. Консультация бесплатна.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Ответ в течение рабочего дня</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Бесплатный экспресс-аудит сайта перед стартом</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Договор, счёт и закрывающие документы как для юрлиц</li>
+            </ul>
+            <p class="small text-mute" style="margin-top:1.5rem">Или напрямую: <a href="https://t.me/maxim_orlov_seo" target="_blank" rel="noopener nofollow" data-track="telegram_click">Telegram</a> · <a href="tel:+79001234567" data-track="phone_click">+7 (900) 123-45-67</a></p>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <form data-form="lead-an" data-endpoint="https://formspree.io/f/xxxxxxxx" class="form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="o-name-an">Имя <span class="req">*</span></label>
+                  <input class="input" id="o-name-an" name="name" type="text" required autocomplete="name" data-validate="name">
+                  <p class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="o-contact-an">Телефон или Telegram <span class="req">*</span></label>
+                  <input class="input" id="o-contact-an" name="contact" type="text" required data-validate="email">
+                  <p class="field-error" aria-live="polite"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="o-site-an">Сайт</label>
+                <input class="input" id="o-site-an" name="site" type="text" placeholder="https://...">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="o-msg-an">Задача <span class="req">*</span></label>
+                <textarea class="textarea" id="o-msg-an" name="message" required data-validate="text"></textarea>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <input type="text" name="_gotcha" hidden data-hp tabindex="-1" autocomplete="off">
+              <label class="checkbox"><input type="checkbox" name="consent" required> Соглашаюсь с <a href="privacy.html">политикой конфиденциальности</a></label>
+              <button class="btn btn-primary btn-block btn-lg" type="submit">Отправить</button>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/include.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
+

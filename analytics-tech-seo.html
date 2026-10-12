@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Технический SEO-аудит сайта: индексация, скорость, дубли, robots, sitemap | Максим Орлов</title>
+  <meta name="description" content="Технический аудит: индексация и доступность, канонические URL, дубли, редиректы, Core Web Vitals, мобильная версия, микроразметка. Отчёт с приоритетами и ТЗ на исправление.">
+  <link rel="canonical" href="https://maxim-orlov.seo/analytics-tech-seo.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Технический SEO-аудит сайта: индексация, скорость, дубли, robots, sitemap">
+  <meta property="og:description" content="Технический аудит: индексация и доступность, канонические URL, дубли, редиректы, Core Web Vitals, мобильная версия, микроразметка. Отчёт с приоритетами и ТЗ на исправление.">
+  <meta property="og:url" content="https://maxim-orlov.seo/analytics-tech-seo.html">
+  <meta property="og:image" content="https://maxim-orlov.seo/assets/img/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+
+  <!-- Шрифты: preconnect + swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"></noscript>
+
+  <!-- Критический CSS (инлайн) + основные стили -->
+  <style>:root{--c-bg:#fff;--c-text:#14161a;--c-accent:#4f46e5;--header-h:68px}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--c-bg);color:var(--c-text)}.container{max-width:1200px;margin:0 auto;padding:0 1.25rem}.site-header{position:sticky;top:0;height:var(--header-h)}h1{font-size:clamp(2rem,4vw,3.25rem)}</style>
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+
+  <!-- Тема без FOUC -->
+  <script src="assets/js/theme.js"></script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://maxim-orlov.seo/"}, {"@type": "ListItem", "position": 2, "name": "Технический SEO-аудит: нахожу, что мешает сайту расти", "item": "https://maxim-orlov.seo/analytics-tech-seo.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Service", "name": "Технический SEO-аудит сайта", "description": "Полная техническая проверка сайта: индексация, дубли, скорость, разметка.", "serviceType": "SEO и интернет-маркетинг", "provider": {"@type": "Person", "name": "Максим Орлов"}, "areaServed": "RU", "url": "https://maxim-orlov.seo/analytics-tech-seo.html"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что такое технический SEO-аудит простыми словами?", "acceptedAnswer": {"@type": "Answer", "text": "Это проверка «под капотом»: как страницы индексируются, нет ли дублей и ошибок сервера, правильно ли настроены robots.txt и sitemap, быстро ли грузится сайт. Если техника сломана — тексты и ссылки не помогут."}}, {"@type": "Question", "name": "Нужен ли аудит, если сайт уже в топе?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Часто позиции держатся на авторитете домена, а скрытые технические проблемы мешают расти дальше и делают сайт уязвимым при апдейтах алгоритмов."}}, {"@type": "Question", "name": "Чем ваш аудит отличается от отчёта онлайн-сервиса?", "acceptedAnswer": {"@type": "Answer", "text": "Сервис выдаёт список ошибок без контекста. Я разбираю каждую находку: важна ли она в вашей ситуации, как её исправить и в каком порядке. Это экономит месяцы работы разработчиков впустую."}}]}
+  </script>
+</head>
+
+<body data-active="analytics">
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="promotion.html">Услуги</a></li>
+          <li><a href="analytics.html">Web-аналитика</a></li>
+          </ol>
+        </nav>
+        <span class="badge">Услуга · Аналитика</span>
+        <h1>Технический SEO-аудит: нахожу, что мешает сайту расти</h1>
+        <p class="lead">Поисковый робот физически не может проиндексировать бесконечный сайт — ошибки «под капотом» напрямую съедают видимость. Провожу полный техчек и передаю понятное ТЗ, а не raw-список ошибок.</p>
+        <div class="hero-ctas" style="margin-top:2rem">
+          <a class="btn btn-primary btn-lg" href="#order" data-track="cta_click" data-track-label="hero">Обсудить задачу</a>
+          <a class="btn btn-outline btn-lg" href="pricing.html">Смотреть цены</a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2>Как технические проблемы съедают трафик</h2>
+        <p>Ни одна красивая страница не поможет, если поисковик до неё «не дошёл» или обработал криво. Самые частые находки:</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>дубли страниц и неверные canonical размывают вес между URL;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>важные разделы случайно закрыты noindex или правилами robots.txt;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>медленная загрузка и красные Core Web Vitals снижают ранг и конверсию;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>кривая мобильная версия — половина аудитории Яндекса уходит;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>цепочки редиректов и ошибки 4xx/5xx крадут обходной бюджет робота.</li>
+        </ul>
+        <h3>Решение: полный техчек с ТЗ</h3>
+        <p>Обход до 100 000 URL, анализ логов поисковых роботов, проверка 120+ факторов. Каждая находка — с описанием влияния на трафик и инструкцией по исправлению для разработчика.</p>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal"><h2>Чек-лист аудита</h2></div>
+        <div class="grid-3">
+          <article class="card card-hover reveal"><h3>Индексация и доступность</h3><p class="text-soft small">robots.txt, sitemap, noindex, зеркала, HTTP-коды, обходной бюджет.</p></article>
+          <article class="card card-hover reveal"><h3>Структура и URL</h3><p class="text-soft small">Глубина залегания, ЧПУ, фильтры, пагинация, мусорные страницы.</p></article>
+          <article class="card card-hover reveal"><h3>Дубли и редиректы</h3><p class="text-soft small">Параметрические URL, www/not-www, http→https, цепочки 301.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Скорость и Core Web Vitals</h3><p class="text-soft small">LCP, INP, CLS, lazy-loading, критический CSS, вес изображений.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Мобильная версия</h3><p class="text-soft small">Responsive, viewport, сопоставимость контента desktop/mobile.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Разметка данных</h3><p class="text-soft small">Schema.org: Product, Article, FAQ, Breadcrumb — валидность и полнота.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal"><h2>Процесс</h2></div>
+        <div class="steps reveal reveal-delay-1">
+          <div class="step"><h3>Полный обход сайта</h3><p>Screaming Frog + парсинг XML-sitemap, выгрузка всех URL и статусов ответа.</p></div>
+          <div class="step"><h3>Логи и Search Console</h3><p>Как часто робот заходит, что получает, где зря тратит бюджет обхода.</p></div>
+          <div class="step"><h3>Проверка факторов</h3><p>По чек-листу 120+ пунктов с фиксацией примеров и скриншотов.</p></div>
+          <div class="step"><h3>Отчёт</h3><p>Приоритеты Critical/High/Medium, ТЗ для разработчиков, оценка эффекта.</p></div>
+          <div class="step"><h3>Контроль внедрения</h3><p>Сверка исправлений через 2–4 недели, повторный замер.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2>Частые вопросы</h2>
+          <p class="lead">Коротко о главном — до звонка и брифа.</p>
+        </div>
+        <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Что такое технический SEO-аудит простыми словами?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Это проверка «под капотом»: как страницы индексируются, нет ли дублей и ошибок сервера, правильно ли настроены robots.txt и sitemap, быстро ли грузится сайт. Если техника сломана — тексты и ссылки не помогут.</p></div>
+            </details>
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Нужен ли аудит, если сайт уже в топе?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Да. Часто позиции держатся на авторитете домена, а скрытые технические проблемы мешают расти дальше и делают сайт уязвимым при апдейтах алгоритмов.</p></div>
+            </details>
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Чем ваш аудит отличается от отчёта онлайн-сервиса?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Сервис выдаёт список ошибок без контекста. Я разбираю каждую находку: важна ли она в вашей ситуации, как её исправить и в каком порядке. Это экономит месяцы работы разработчиков впустую.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Смежные услуги</h2>
+          <p class="lead">Результат приходит, когда работы связаны в единую стратегию.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card card-hover reveal"><h3><a href="keywords.html">Семантическое ядро</a></h3><p class="text-soft small">Сбор и кластеризация запросов — фундамент продвижения и рекламы.</p></article>
+          <article class="card card-hover reveal"><h3><a href="content.html">Контент и копирайтинг</a></h3><p class="text-soft small">Тексты под интент: читают люди, любят поисковики.</p></article>
+          <article class="card card-hover reveal"><h3><a href="analytics-site-audit.html">Анализ сайта</a></h3><p class="text-soft small">Поведение, юзабилити и конверсии — где теряются заявки.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" id="order" aria-labelledby="order-h">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <h2 id="order-h">Готовы обсудить ваш проект?</h2>
+            <p class="lead">Опишите задачу — в течение рабочего дня пришлю предварительную оценку, план работ и релевантные кейсы. Консультация бесплатна.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Ответ в течение рабочего дня</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Бесплатный экспресс-аудит сайта перед стартом</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Договор, счёт и закрывающие документы как для юрлиц</li>
+            </ul>
+            <p class="small text-mute" style="margin-top:1.5rem">Или напрямую: <a href="https://t.me/maxim_orlov_seo" target="_blank" rel="noopener nofollow" data-track="telegram_click">Telegram</a> · <a href="tel:+79001234567" data-track="phone_click">+7 (900) 123-45-67</a></p>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <form data-form="lead-at" data-endpoint="https://formspree.io/f/xxxxxxxx" class="form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="o-name-at">Имя <span class="req">*</span></label>
+                  <input class="input" id="o-name-at" name="name" type="text" required autocomplete="name" data-validate="name">
+                  <p class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="o-contact-at">Телефон или Telegram <span class="req">*</span></label>
+                  <input class="input" id="o-contact-at" name="contact" type="text" required data-validate="email">
+                  <p class="field-error" aria-live="polite"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="o-site-at">Сайт</label>
+                <input class="input" id="o-site-at" name="site" type="text" placeholder="https://...">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="o-msg-at">Задача <span class="req">*</span></label>
+                <textarea class="textarea" id="o-msg-at" name="message" required data-validate="text"></textarea>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <input type="text" name="_gotcha" hidden data-hp tabindex="-1" autocomplete="off">
+              <label class="checkbox"><input type="checkbox" name="consent" required> Соглашаюсь с <a href="privacy.html">политикой конфиденциальности</a></label>
+              <button class="btn btn-primary btn-block btn-lg" type="submit">Отправить</button>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/include.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
+

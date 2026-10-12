@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Семантическое ядро сайта: сбор, кластеризация и чистка запросов | Максим Орлов</title>
+  <meta name="description" content="Сбор и кластеризация семантического ядра: парсинг Wordstat, анализ интентов, группировка по страницам, карта покрытия, минус-фразы. Фундамент SEO и контекстной рекламы.">
+  <link rel="canonical" href="https://maxim-orlov.seo/keywords.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Семантическое ядро сайта: сбор, кластеризация и чистка запросов">
+  <meta property="og:description" content="Сбор и кластеризация семантического ядра: парсинг Wordstat, анализ интентов, группировка по страницам, карта покрытия, минус-фразы. Фундамент SEO и контекстной рекламы.">
+  <meta property="og:url" content="https://maxim-orlov.seo/keywords.html">
+  <meta property="og:image" content="https://maxim-orlov.seo/assets/img/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+
+  <!-- Шрифты: preconnect + swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"></noscript>
+
+  <!-- Критический CSS (инлайн) + основные стили -->
+  <style>:root{--c-bg:#fff;--c-text:#14161a;--c-accent:#4f46e5;--header-h:68px}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--c-bg);color:var(--c-text)}.container{max-width:1200px;margin:0 auto;padding:0 1.25rem}.site-header{position:sticky;top:0;height:var(--header-h)}h1{font-size:clamp(2rem,4vw,3.25rem)}</style>
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+
+  <!-- Тема без FOUC -->
+  <script src="assets/js/theme.js"></script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://maxim-orlov.seo/"}, {"@type": "ListItem", "position": 2, "name": "Семантическое ядро: фундамент всего продвижения", "item": "https://maxim-orlov.seo/keywords.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Service", "name": "Семантическое ядро сайта", "description": "Сбор, чистка и кластеризация запросов, карта покрытия, минус-фразы.", "serviceType": "SEO и интернет-маркетинг", "provider": {"@type": "Person", "name": "Максим Орлов"}, "areaServed": "RU", "url": "https://maxim-orlov.seo/keywords.html"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько времени занимает сбор семантического ядра?", "acceptedAnswer": {"@type": "Answer", "text": "Для сайта до 500 страниц — 5–10 рабочих дней. Крупным интернет-магазинам с десятками тысяч SKU нужно от 2 недель, кластеры передаю поэтапно."}}, {"@type": "Question", "name": "В каких инструментах собираете?", "acceptedAnswer": {"@type": "Answer", "text": "Key Collector, Wordstat, Serpstat/Keys.so, логи Search Console и внутренняя статистика поиска по сайту. Комбинация источников даёт ядро без мусора и без пропусков."}}, {"@type": "Question", "name": "Что такое минус-слова и нужны ли они мне?", "acceptedAnswer": {"@type": "Answer", "text": "Слова, исключающие нецелевые показы: «скачать», «реферат», «бесплатно» для коммерческого сайта. Набор минус-фраз входит в поставку ядра и обязателен для контекстной рекламы."}}]}
+  </script>
+</head>
+
+<body data-active="keywords">
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="promotion.html">Услуги</a></li>
+          <li><span aria-current="page">Семантическое ядро</span></li>
+          </ol>
+        </nav>
+        <span class="badge">Услуга · Семантика</span>
+        <h1>Семантическое ядро: фундамент всего продвижения</h1>
+        <p class="lead">Собираю полный список запросов ниши, чищу от мусора, группирую по интентам и раздаю по страницам сайта. На выходе — инженерный документ, по которому работают SEO, реклама и контент.</p>
+        <div class="hero-ctas" style="margin-top:2rem">
+          <a class="btn btn-primary btn-lg" href="#order" data-track="cta_click" data-track-label="hero">Обсудить задачу</a>
+          <a class="btn btn-outline btn-lg" href="pricing.html">Смотреть цены</a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2>Почему без ядра продвижение — вслепую</h2>
+        <p>«Раскрутить сайт в топ» — обещание без адреса. Ядро превращает абстракцию в конкретный план:</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>непонятно, под какие именно запросы оптимизировать каждую страницу;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>два раздела сайта конкурируют между собой за один запрос;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>частотники выбраны «на слух», золотые среднечастотники пропущены;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>рекламные кампании собраны из того же набора догадок;</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>нет карты покрытия — невозможно измерить прогресс.</li>
+        </ul>
+        <h3>Решение: ядро как инженерный документ</h3>
+        <p>Передаю файл с тысячами запросов по кластерам и целевым страницам — с частотностью, интентом и приоритетом. Дальше по единому плану работают SEO, Директ и копирайтеры: один источник правды вместо споров.</p>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal"><h2>Состав поставки</h2></div>
+        <div class="grid-3">
+          <article class="card card-hover reveal"><h3>Expansion семантики</h3><p class="text-soft small">Wordstat + подсказки + «вместе ищут» + конкуренты + статистика внутреннего поиска.</p></article>
+          <article class="card card-hover reveal"><h3>Чистка</h3><p class="text-soft small">Стоп-лист, модерация вручную, геозависимые и независимые запросы отдельно.</p></article>
+          <article class="card card-hover reveal"><h3>Кластеризация</h3><p class="text-soft small">Группировка по интенту методом пересечений выдачи — точно, а не «на глаз».</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Карта сайта</h3><p class="text-soft small">Кластер → URL → тип страницы → требуемый контент. Всё видно в одной таблице.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Приоритеты</h3><p class="text-soft small">Частотность × конкуренция × коммерческий потенциал; план на 6–12 месяцев.</p></article>
+          <article class="card card-hover reveal reveal-delay-1"><h3>Минус-фразы</h3><p class="text-soft small">Готовый набор для Директа и Google Ads, защищающий бюджет с первого дня.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal"><h2>Как строится работа</h2></div>
+        <div class="steps reveal reveal-delay-1">
+          <div class="step"><h3>Бриф</h3><p>Товары и услуги, регионы, модель продаж, словарь названий продукции.</p></div>
+          <div class="step"><h3>Сбор базы</h3><p>Парсинг по seed-запросам, склейка источников, дедупликация.</p></div>
+          <div class="step"><h3>Анализ выдачи</h3><p>SERP по каждому кластеру, определение типа интента и конкурентности.</p></div>
+          <div class="step"><h3>Раздача по страницам</h3><p>Кластер закрепляется за существующим или новым URL.</p></div>
+          <div class="step"><h3>Передача</h3><p>Файл, пояснения и шаблон отслеживания позиций по кластерам.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2>Частые вопросы</h2>
+          <p class="lead">Коротко о главном — до звонка и брифа.</p>
+        </div>
+        <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Сколько времени занимает сбор семантического ядра?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Для сайта до 500 страниц — 5–10 рабочих дней. Крупным интернет-магазинам с десятками тысяч SKU нужно от 2 недель, кластеры передаю поэтапно.</p></div>
+            </details>
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">В каких инструментах собираете?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Key Collector, Wordstat, Serpstat/Keys.so, логи Search Console и внутренняя статистика поиска по сайту. Комбинация источников даёт ядро без мусора и без пропусков.</p></div>
+            </details>
+            <details class="faq-item reveal" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+              <summary itemprop="name">Что такое минус-слова и нужны ли они мне?<span class="faq-icon" aria-hidden="true"></span></summary>
+              <div class="faq-body" itemprop="acceptedAnswer" itemscope><p itemprop="text">Слова, исключающие нецелевые показы: «скачать», «реферат», «бесплатно» для коммерческого сайта. Набор минус-фраз входит в поставку ядра и обязателен для контекстной рекламы.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Смежные услуги</h2>
+          <p class="lead">Результат приходит, когда работы связаны в единую стратегию.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card card-hover reveal"><h3><a href="keywords.html">Семантическое ядро</a></h3><p class="text-soft small">Сбор и кластеризация запросов — фундамент продвижения и рекламы.</p></article>
+          <article class="card card-hover reveal"><h3><a href="content.html">Контент и копирайтинг</a></h3><p class="text-soft small">Тексты под интент: читают люди, любят поисковики.</p></article>
+          <article class="card card-hover reveal"><h3><a href="analytics-site-audit.html">Анализ сайта</a></h3><p class="text-soft small">Поведение, юзабилити и конверсии — где теряются заявки.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" id="order" aria-labelledby="order-h">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <h2 id="order-h">Готовы обсудить ваш проект?</h2>
+            <p class="lead">Опишите задачу — в течение рабочего дня пришлю предварительную оценку, план работ и релевантные кейсы. Консультация бесплатна.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Ответ в течение рабочего дня</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Бесплатный экспресс-аудит сайта перед стартом</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 13 4 4L19 7"/></svg>Договор, счёт и закрывающие документы как для юрлиц</li>
+            </ul>
+            <p class="small text-mute" style="margin-top:1.5rem">Или напрямую: <a href="https://t.me/maxim_orlov_seo" target="_blank" rel="noopener nofollow" data-track="telegram_click">Telegram</a> · <a href="tel:+79001234567" data-track="phone_click">+7 (900) 123-45-67</a></p>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <form data-form="lead-kw" data-endpoint="https://formspree.io/f/xxxxxxxx" class="form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="o-name-kw">Имя <span class="req">*</span></label>
+                  <input class="input" id="o-name-kw" name="name" type="text" required autocomplete="name" data-validate="name">
+                  <p class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="o-contact-kw">Телефон или Telegram <span class="req">*</span></label>
+                  <input class="input" id="o-contact-kw" name="contact" type="text" required data-validate="email">
+                  <p class="field-error" aria-live="polite"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="o-site-kw">Сайт</label>
+                <input class="input" id="o-site-kw" name="site" type="text" placeholder="https://...">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="o-msg-kw">Задача <span class="req">*</span></label>
+                <textarea class="textarea" id="o-msg-kw" name="message" required data-validate="text"></textarea>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <input type="text" name="_gotcha" hidden data-hp tabindex="-1" autocomplete="off">
+              <label class="checkbox"><input type="checkbox" name="consent" required> Соглашаюсь с <a href="privacy.html">политикой конфиденциальности</a></label>
+              <button class="btn btn-primary btn-block btn-lg" type="submit">Отправить</button>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/include.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
+

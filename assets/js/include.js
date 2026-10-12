@@ -5,15 +5,12 @@
 (function () {
   'use strict';
 
-  var BASE = (function () {
-    // путь к корню сайта относительно текущей страницы (все страницы в корне, но оставим гибкость)
-    return '/';
-  })();
+  var BASE = ''; // относительные пути — сайт работает при открытии файлов двойным кликом (file://) и на любом хостинге без настройки
 
   var NAV = [
     { href: 'index.html', key: 'index', label: 'Главная' },
     {
-      href: '#services', label: 'Услуги', sub: [
+      href: 'promotion.html', key: 'services', label: 'Услуги', sub: [
         { href: 'support.html', key: 'support', label: 'Поддержка сайта' },
         { href: 'promotion.html', key: 'promotion', label: 'Продвижение сайта' },
         { href: 'promotion-traffic.html', key: 'promotion-traffic', label: '— Продвижение по трафику', indent: true },
